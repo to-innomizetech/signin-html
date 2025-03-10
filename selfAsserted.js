@@ -1,9 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
+  console.log('===========================================');
+  console.log('Start custom');
+  console.log('===========================================');
+
   var observer = new MutationObserver(function (mutations, obs) {
-    var submitButtons = document.querySelectorAll("button[type='submit']");
-    if (submitButtons.length >= 2) {
+    var continueButton = document.querySelector("button[type='submit']");
+    console.log('===========================================');
+    console.log('continueButton: ', continueButton);
+    console.log('===========================================');
+    if (continueButton) {
       obs.disconnect();
-      var continueButton = submitButtons[1];
 
       var checkboxContainer = document.createElement('div');
       checkboxContainer.innerHTML = `
