@@ -49,13 +49,16 @@ function setupPwdTogglers() {
   if (continueButton) {
     var checkboxContainer = document.createElement('div');
     checkboxContainer.innerHTML = `
-              <div style="margin-top: 15px;">
-                  <input type="checkbox" id="termsCheckbox">
-                  <label for="termsCheckbox">
-                      I agree to the <a href="https://baqa-frontend-dev.azurewebsites.net/privacy-policy" target="_blank">Terms & Privacy</a>
-                  </label>
-              </div>
-          `;
+      <div style="margin-top: 15px;">
+          <input type="checkbox" id="termsCheckbox">
+          <label for="termsCheckbox">
+              I agree to the 
+              <a href="https://baqa-frontend-dev.azurewebsites.net/terms-and-conditions" target="_blank">Terms & Conditions</a> 
+              and 
+              <a href="https://baqa-frontend-dev.azurewebsites.net/privacy-policy" target="_blank">Privacy Policy</a>.
+          </label>
+      </div>
+    `;
 
     continueButton.parentNode.insertBefore(checkboxContainer, continueButton);
 
