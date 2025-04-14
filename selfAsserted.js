@@ -1,51 +1,8 @@
-// document.addEventListener('DOMContentLoaded', function () {
-//   console.log('===========================================');
-//   console.log('Start custom');
-//   console.log('===========================================');
-
-//   var observer = new MutationObserver(function (mutations, obs) {
-//     var continueButton = document.querySelector("button[type='submit']");
-//     console.log('===========================================');
-//     console.log('continueButton: ', continueButton);
-//     console.log('===========================================');
-//     if (continueButton) {
-//       obs.disconnect();
-
-//       var checkboxContainer = document.createElement('div');
-//       checkboxContainer.innerHTML = `
-//               <div style="margin-top: 15px;">
-//                   <input type="checkbox" id="termsCheckbox">
-//                   <label for="termsCheckbox">
-//                       I agree to the <a href="https://policies.google.com/" target="_blank">Terms & Privacy</a>
-//                   </label>
-//               </div>
-//           `;
-
-//       continueButton.parentNode.insertBefore(checkboxContainer, continueButton);
-
-//       continueButton.disabled = true;
-//       document
-//         .getElementById('termsCheckbox')
-//         .addEventListener('change', function () {
-//           continueButton.disabled = !this.checked;
-//         });
-//     }
-//   });
-
-//   observer.observe(document.body, { childList: true, subtree: true });
-// });
-
 function setupPwdTogglers() {
-  console.log('===========================================');
-  console.log('Start custom');
-  console.log('===========================================');
   while (!continueButton) {
-    console.log('querySelector button submit');
     var continueButton = document.querySelector("button[type='submit']");
   }
-  console.log('===========================================');
-  console.log('continueButton: ', continueButton);
-  console.log('===========================================');
+
   if (continueButton) {
     var checkboxContainer = document.createElement('div');
     checkboxContainer.innerHTML = `
@@ -65,6 +22,7 @@ function setupPwdTogglers() {
     continueButton.setAttribute('aria-disabled', 'true');
     continueButton.style.pointerEvents = 'none';
     continueButton.style.opacity = '0.3';
+    hideFields();
 
     document
       .getElementById('termsCheckbox')
@@ -82,4 +40,54 @@ function setupPwdTogglers() {
   }
 }
 
+const fieldsToHide = [
+  'continue',
+  'termsCheckbox',
+  'newPassword',
+  'reenterPassword',
+  'givenName',
+  'surname',
+  'extension_PhoneNumber',
+];
+
+function hideFields() {
+  fieldsToHide.forEach((fieldId) => {
+    const el = document.getElementById(fieldId);
+    if (el) el.closest('div').style.display = 'none';
+  });
+}
+
+function showFields() {
+  fieldsToHide.forEach((fieldId) => {
+    const el = document.getElementById(fieldId);
+    if (el) el.closest('div').style.display = 'inline';
+  });
+}
+
+// Function to observe changes to the emailVerificationControl_but_send_code button
+function observeSendCodeButton() {
+  const sendCodeButton = document.getElementById("emailVerificationControl_but_change_claims");
+
+  if (!sendCodeButton) return;  // Exit if button is not found
+
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(mutation => {
+      // Check if button is visible or hidden based on the "style" attribute
+      if (mutation.attributeName === "style") {
+        if (sendCodeButton.style.display !== "none") {
+          // If button is visible, show the hidden fields
+          showFields();
+        } else {
+          // If button is hidden, hide the fields
+          hideFields();
+        }
+      }
+    });
+  });
+
+  // Start observing the sendCodeButton for changes in the "style" attribute
+  observer.observe(sendCodeButton, { attributes: true });
+}
+
 setupPwdTogglers();
+observeSendCodeButton();
