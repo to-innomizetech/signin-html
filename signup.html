@@ -1039,6 +1039,53 @@
       text-align: left
     }
 
+    #termsModal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #modalContainer {
+      background: white;
+      max-width: 600px;
+      max-height: 80%;
+      overflow: hidden;
+      padding: 20px;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    #dismissModal {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      font-size: 36px;
+      cursor: pointer;
+      color: #999;
+    }
+
+    #termsContent {
+      height: 300px;
+      overflow-y: scroll;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 1rem;
+    }
+
+    #confirmRead {
+      margin-top: 10px; 
+      display: hidden;
+    }
+
     /* endinject */
   </style>
 
@@ -1063,6 +1110,169 @@
       </div>
     </div>
   </div>
+  <div id="termsModal">
+    <div id="modalContainer">
+        <!-- Close icon button -->
+        <button id="dismissModal" aria-label="Close">
+            &times;
+        </button>
+
+        <h2>Terms and Conditions</h2>
+        <div id="termsContent">
+            <p>
+            <h4>1. Terms of Use</h4>
+            These terms of use ("Agreement") apply to any
+            website owned by Mosswall Technologies LLC, including
+            www.baqagenie.com and mosswalltechnologies.com, unless otherwise
+            stated on such website (collectively, the "Website"). By using the
+            Website, you agree to the terms of this Agreement, as may be amended
+            from time to time. If you do not agree to these terms, you should
+            immediately stop using the Website.
+            <h4>2. Your Right to Access and Use the Website </h4>
+            The right to access and use the Website is personal to
+            you and is not transferable by you to any other person or entity.
+            You are only entitled to access and use the Website for lawful
+            purposes and pursuant to the terms and conditions of this Agreement.
+            The Website is not intended for persons under the age of eighteen
+            (18).<br /> <br />
+            By accessing and using the Website (other than to read this
+            Agreement), you agree to comply with all of the terms and conditions
+            of this Agreement, including any changes or revisions to this
+            Agreement, which Mosswall Technologies, in its sole discretion, may
+            make in the future.<br /> <br />
+            Any action by you that, as determined by
+            Mosswall Technologies, in its sole discretion, restricts, inhibits
+            or prevents you or any other user from accessing, using or enjoying
+            the Website shall not be permitted. Any such action, or any other
+            conduct that Mosswall Technologies determines in its sole discretion
+            to be unacceptable may result in your loss of the right to access
+            and use the Website.
+            <h4>3. Intellectual Property Rights</h4>
+            Images or videos of people or places displayed on the Website are
+            either the property of, or used with the permission of Mosswall Technologies.
+            The use of these images or videos by you, or anyone else authorized by you,
+            is prohibited unless specifically permitted by this Agreement or specific
+            permission provided elsewhere on the Website. Any unauthorized use of the
+            images or videos may violate copyright laws, trademark laws, the laws of privacy
+            and publicity and communications regulations and statutes.<br /> <br />
+            The trademarks, logos and service marks (collectively the "Trademarks") displayed on the Website and their
+            respective logos are owned by Mosswall Technologies or a third party. Nothing contained on the Website
+            should be construed as granting, by implication, estoppel, or otherwise, any license or right to use any
+            Trademark displayed on the Website without the written permission of Mosswall Technologies or such
+            third-party owners of the Trademarks. Any use of third-party Trademarks on the Website is done either by
+            permission of the Trademarks' owners or is subject to the Fair Use provisions of international, Federal, and
+            State intellectual property laws. No special association or relationship is intended by such use, and its
+            use should not be construed as granting Mosswall Technologies any official status with any third party,
+            unless otherwise noted. Your misuse of the Trademarks displayed on the Website, or any other content on the
+            Website is strictly prohibited. Mosswall Technologies reserves the right to enforce its intellectual
+            property rights to the fullest extent of the law, including seeking criminal prosecution.<br /> <br />
+            The data and content contained on or downloaded from the Website (collectively, the "Content") are
+            copyrighted by Mosswall Technologies or third parties. Mosswall Technologies also owns a copyright of a
+            collective work in the selection, coordination, arrangement and enhancement of the Content.<br /> <br />
+            Subject to your compliance with this agreement, you may access, view, download, or print a single copy of
+            the Content for your personal, non-commercial use; provided, however, that you shall not delete any
+            proprietary notices or materials on the Content.<br /> <br />
+            Except as otherwise permitted under the copyright laws of the United States, no other copying, distribution,
+            redistribution, transmission, publication or use of the Content is permitted without the express prior
+            written permission of Mosswall Technologies or its licensors.<br /> <br />
+            You agree that printing, downloading or otherwise using the Content in accordance with this Agreement does
+            not entitle you to any ownership or intellectual property rights in the Content.<br /> <br />
+            You shall be solely responsible for any damage resulting from your infringement of Mosswall Technologies
+            intellectual property or any other harm incurred by Mosswall Technologies as a direct or indirect result of
+            your copying, distributing, redistributing, transmitting, publication or use of the Trademarks or the
+            Content that is contrary to the terms and conditions of this Agreement.<br /> <br />
+            <h4>4. License Grant</h4>
+            If you make any submission to or communications on the Website, you automatically grant, or warrant that you
+            and/or the owner of such content has expressly granted to Mosswall Technologies, a royalty-free, perpetual,
+            irrevocable, worldwide, unlimited, nonexclusive license to use, reproduce, create derivative works from,
+            modify, publish, edit, translate, distribute, perform and display the communication or content material in
+            any media or medium, or any form, format or forum now known or hereafter developed. Mosswall Technologies
+            may sublicense its rights through multiple tiers of sublicenses.<br /><br />
+            <h4>5. Limitations on Mosswall Technologies' Liability</h4>
+            MOSSWALL TECHNOLOGIES SHALL IN NO EVENT BE RESPONSIBLE OR LIABLE TO YOU OR ANY THIRD PARTY, WHETHER IN
+            CONTRACT, WARRANTY, TORT (INCLUDING NEGLIGENCE) OR OTHERWISE FOR ANY SPECIAL, INCIDENTAL, INDIRECT OR
+            CONSEQUENTIAL DAMAGES, INCLUDING, BUT NOT LIMITED TO, DAMAGES FOR ANY LOSS OF PROFIT, REVENUE OR BUSINESS,
+            AS A RESULT OF:<br /><br />
+            (i) YOUR ACCESS AND USE OF THE WEBSITE;<br /><br />
+            (ii) YOUR DOWNLOADING OF ANY CONTENT FOR YOUR PERSONAL, NON-COMMERCIAL USE;<br /><br />
+            (iii) YOUR DOWNLOADING OF ANY CONTENT AS MAY BE PERMITTED BY MOSSWALL TECHNOLOGIES'S PRIOR WRITTEN
+            PERMISSION REGARDING THE SAME; OR<br /><br />
+            (iv) YOUR RELIANCE ON OR USE OF CONTENT DISPLAYED, OFFERED, PROMOTED OR ADVERTISED ON THE
+            WEBSITE.<br /><br />
+            <h4>6. Indemnification</h4>
+            You shall defend, indemnify and hold harmless Mosswall Technologies, its subsidiaries and other affiliates,
+            and each of their respective officers, directors, shareholders, employees, independent contractors, agents,
+            representatives and affiliates from and against all claims and expenses, including attorneys' fees, arising
+            out of, or attributable to: (i) any breach or violation of this Agreement by you; and (ii) any access or use
+            of the Website.<br /><br />
+            <h4>7. Links to External Website</h4>
+            The Website may contain links to other websites. Mosswall Technologies is not responsible for the
+            availability of these external websites nor does Mosswall Technologies endorse the activities or services
+            provided by these Website. Under no circumstances shall Mosswall Technologies be held responsible or liable,
+            directly or indirectly, for any loss or damage caused or alleged to have been caused to a user in connection
+            with the use of or reliance on any content, goods or services available on such external
+            website.<br /><br />
+            <h4>8. Privacy</h4>
+            Mosswall Technologies respects your privacy. The collection and use of your information in connection with
+            the Website is governed by our <a href="https://baqa-frontend-dev.azurewebsites.net/privacy-statement" target="_blank">Privacy
+                Statement</a>.<br /><br />
+            <h4>9. Third Party Rights</h4>
+            This Agreement is for the benefit of Mosswall Technologies, its subsidiaries, other affiliates, and
+            third-party licensors, each of which shall have the right to enforce and assert the terms and conditions of
+            this Agreement directly against you on its behalf. No other third-party rights are provided under this
+            Agreement.<br /><br />
+            <h4>10. Amendments</h4>
+            Mosswall Technologies reserves the right to amend this Agreement at any time in its sole discretion and
+            without notice. Changes, revisions or deletions with regard to this Agreement shall be effective immediately
+            upon its inclusion in, or deletion from, this Agreement and the posting of the same in this Agreement on the
+            Website. You are encouraged to revisit this Agreement from time to time in order to review any changes that
+            have been made. Your continued access to and use of the Website following the posting of any such changes
+            shall be deemed your acceptance of the same.<br /><br />
+            <h4>11. Remedies</h4>
+            You acknowledge that Mosswall Technologies may be irreparably damaged if this Agreement is not specifically
+            enforced, and damages at law would be an inadequate remedy. Therefore, in the event of a breach or
+            threatened breach of any provision of this Agreement by you, Mosswall Technologies shall be entitled, in
+            addition to all rights and remedies, to an injunction restraining such breach or threatened breach, without
+            being required to show any actual damage or to post an injunction bond, or to a decree for specific
+            performance of the provisions of this Agreement.<br /><br />
+            <h4>12. Disputes</h4>
+            Any action or proceeding arising out of or relating to this Agreement or your use of the Website shall be
+            brought in the courts of record of Broward County, Florida, or the United States District Court, Southern
+            District of Florida. You consent to the jurisdiction of such courts and waive any objection to the setting
+            of the venue of any such action or proceeding in such courts. You agree that service of any court paper may
+            be effected by mail or in such other manner as may be provided under applicable laws, rules of procedure or
+            local rules.<br /><br />
+            <h4>13. Miscellaneous</h4>
+            This Agreement is to be governed by and construed in accordance with the internal laws of the State of
+            Florida, without regard to principles of conflicts of laws.<br /><br />
+            If any portion of this Agreement is deemed unlawful, void or unenforceable by any court of competent
+            jurisdiction, this Agreement as a whole shall not be deemed unlawful, void or unenforceable, but only that
+            portion of this Agreement that is unlawful, void or unenforceable shall be stricken from this
+            Agreement.<br /><br />
+            The headings contained in this Agreement are for convenience of reference only, are not to be considered a
+            part of this Agreement, and shall not limit or otherwise affect in any way the meaning or interpretation of
+            this Agreement.<br /><br />
+            All covenants, agreements, representations and warranties made in this Agreement, as may be amended by
+            Mosswall Technologies from time to time, shall survive your acceptance of this Agreement.<br /><br />
+            <h4>14. No Representations or Warranties Regarding Content</h4>
+            THE CONTENT IS BEING PROVIDED TO YOU ON AN "AS-IS" BASIS. MOSSWALL TECHNOLOGIES DOES NOT MAKE ANY
+            REPRESENTATIONS, WARRANTIES OR GUARANTEES, EXPRESS OR IMPLIED, REGARDING THE ACCURACY, CORRECTNESS OR
+            COMPLETENESS OF THE CONTENT, NOR THE SAFETY, RELIABILITY, TITLE, MERCHANTABILITY, CONFORMITY OR FITNESS OR A
+            PARTICULAR PURPOSE OF THE CONTENT.<br /><br />
+            MOSSWALL TECHNOLOGIES MAKES NO REPRESENTATION, WARRANTY OR GUARANTEE THAT THE WEBSITE OR ANY CONTENT
+            AVAILABLE FOR DOWNLOADING FROM THE WEBSITE IS FREE OF DEFECTS OR MALWARE. YOU AGREE THAT ACCESSING THE
+            WEBSITE OR DOWNLOADING CONTENT IS AT YOUR OWN RISK.<br /><br />
+            IT IS YOUR SOLE RESPONSIBILITY TO INDEPENDENTLY EVALUATE THE ACCURACY, CORRECTNESS OR COMPLETENESS OF ANY
+            OPINIONS, ADVICE, STATEMENTS, SERVICES, PERKS, OFFERS OR OTHER INFORMATION OR CONTENT ON THE
+            WEBSITE.<br /><br />
+            </p>
+            <div id="termsEndMarker" style="height: 1px"></div>
+        </div>
+        <button id="confirmRead" disabled style="margin-top: 10px">
+            I’ve read and understood
+        </button>
+    </div>
+</div>
 </body>
 
 </html>
