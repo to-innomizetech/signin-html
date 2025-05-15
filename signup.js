@@ -136,6 +136,8 @@ function setupTermsAgreementFlow() {
     termsCheckbox.style.pointerEvents = "none";
     termsCheckbox.style.cursor = "default";
     termsCheckbox.title = "";
+
+    termsCheckbox.dispatchEvent(new Event('change'));
   });
 
   // Allow dismissing modal without confirming
