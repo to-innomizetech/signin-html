@@ -6,15 +6,14 @@ function setupPwdTogglers() {
   if (continueButton) {
     var checkboxContainer = document.createElement('div');
     checkboxContainer.innerHTML = `
-      <div style="margin-top: 15px; display: flex; justify-content: center; align-items: flex-start; gap: 8px;">
-          <input type="checkbox" id="termsCheckbox" />
-          <label for="termsCheckbox">
-            I agree to the 
-            <a href="https://baqa-frontend-dev.azurewebsites.net/terms-and-conditions" target="_blank">Terms & Conditions</a><br />
-            and 
-            <a href="https://baqa-frontend-dev.azurewebsites.net/privacy-statement" target="_blank">Privacy Statement</a>.
-          </label>
-      </div>
+    <div style="margin-top: 15px; display: flex; justify-content: center; align-items: flex-start; gap: 8px;">
+      <input type="checkbox" id="termsCheckbox" disabled title="You must read terms and condition first"
+          style="cursor: not-allowed" />
+      I agree to the
+      <span id="openTerms" style="color: blue; text-decoration: underline; cursor: pointer;">
+          Terms & Conditions
+      </span>
+    </div>         
     `;
     continueButton.parentNode.insertBefore(checkboxContainer, continueButton);
 
@@ -89,5 +88,62 @@ function observeSendCodeButton() {
   observer.observe(sendCodeButton, { attributes: true });
 }
 
+function setupTermsAgreementFlow() {
+  const openTerms = document.getElementById("openTerms");
+  const termsModal = document.getElementById("termsModal");
+  const termsContent = document.getElementById("termsContent");
+  const confirmRead = document.getElementById("confirmRead");
+  const dismissModal = document.getElementById("dismissModal");
+  const endMarker = document.getElementById("termsEndMarker");
+
+  let hasReadTerms = false;
+
+  openTerms.addEventListener("click", function () {
+    termsModal.style.display = "flex";
+    termsContent.scrollTop = 0;
+    confirmRead.disabled = !hasReadTerms;
+  });
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          hasReadTerms = true;
+          confirmRead.disabled = false;
+          confirmRead.style.backgroundColor = "#296ec6";
+          confirmRead.style.color = "#ffffff";
+          confirmRead.style.border = "solid 2px";
+          confirmRead.style.borderColor = "#e0e0e0";
+          observer.disconnect();
+        }
+      });
+    },
+    {
+      root: termsContent,
+      threshold: 1.0,
+    }
+  );
+
+  observer.observe(endMarker);
+
+  // Confirm the user has read the terms
+  confirmRead.addEventListener("click", function () {
+    termsModal.style.display = "none";
+    termsCheckbox.checked = true;
+    termsCheckbox.disabled = false;
+
+    // Make checkbox read-only via styling (not interactable)
+    termsCheckbox.style.pointerEvents = "none";
+    termsCheckbox.style.cursor = "default";
+    termsCheckbox.title = "";
+  });
+
+  // Allow dismissing modal without confirming
+  dismissModal.addEventListener("click", function () {
+    termsModal.style.display = "none";
+  });
+}
+
 setupPwdTogglers();
 observeSendCodeButton();
+setupTermsAgreementFlow();
